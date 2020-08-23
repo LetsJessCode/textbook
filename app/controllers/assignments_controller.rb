@@ -30,7 +30,6 @@ class AssignmentsController < ApplicationController
     end
 
     def edit ###not working....current_user is showing nil
-      binding.pry
       current_user
       if @assignment && @assignment.id == current_user
           redirect_to user_edit_assignment_path(current_user, @assignment)
@@ -53,6 +52,6 @@ class AssignmentsController < ApplicationController
     end
 
     def this_assignment
-         current_user.assignments.find_by_id(params[:id])
+       @assignment = Assignment.find_by_id(params[:id])
     end
 end

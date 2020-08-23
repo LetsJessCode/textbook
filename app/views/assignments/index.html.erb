@@ -1,4 +1,10 @@
   <h1> <%= current_user.first %>'s BackPack</h1>
+  
+  <%= form_tag(user_assignments_path, method: 'get') do %>
+  <%= text_field_tag :term, nil,  id: "Search", placeholder: "enter search term" %>
+  <%= submit_tag "Search"%>
+<% end %>
+
    <% current_user.assignments.each do |assignment| %>
        <h3>Subject: <%= assignment.course.name %></h3> 
        <li>Assignment Name: <%= assignment.name %></li> 

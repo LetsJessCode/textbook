@@ -5,7 +5,7 @@ class Assignment < ApplicationRecord
   
   scope :completed, -> { where.not(completed: :false)} #works!
   scope :incomplete, -> { where(completed: false) } # works!
-  scope :search, -> (term) { where("name LIKE ?", "%#{term}#%") } #this does not work #
+  # scope :search, -> (term) { self.all.where("name LIKE ?", "%#{term}#%") } #this does not work #
   # def self.completed
   #   where.not(completed: false)
   # end

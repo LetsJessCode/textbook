@@ -1,6 +1,5 @@
     <h1>Edit Page </h1>
-
-    <%= form_for @assignment  do |f| %>        
+   <%= form_for([current_user, @assignment])   do |f| %>        
    <%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h4>
      <div>
            <%= f.label :name %>
@@ -16,5 +15,5 @@
             <%= f.label :comment, 'Comments/Questions' %>
             <%= f.text_area :comment %> <br>
             
-            <%= f.submit button_name %>
+            <%= f.submit 'Edit Assignment'  %>
             <% end %>
