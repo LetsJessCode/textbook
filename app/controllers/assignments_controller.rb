@@ -3,6 +3,7 @@ class AssignmentsController < ApplicationController
     
 
     def index 
+      # binding.pry
       if params[:term]
         @assignments = Assignment.search(params[:term])
       else
@@ -39,7 +40,12 @@ class AssignmentsController < ApplicationController
   end 
 
     def update
-
+      current_user
+      if @assignment.update(assignment_params)
+        redirect_to user_assignment_path(current_user, @assignment)
+      else
+        render :edit
+      end
     end
 
     def destroy
