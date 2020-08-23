@@ -17,7 +17,7 @@ user2 = User.create({first: 'Justin', last: 'Time', email: 'tes2t@test.com', pas
         course_id: courses[rand(courses.length)].id,
         due: (Date.today + 1),
         name: 'Homework 1',
-        completed: true
+        completed: "yes"
     })
 end
 
@@ -28,7 +28,7 @@ end
         course_id: courses[rand(courses.length)].id,
         due: (Date.today + 1),
         name: 'Homework',
-        completed: true
+        completed: "no"
     })
 end
     puts "Seeded successfully"

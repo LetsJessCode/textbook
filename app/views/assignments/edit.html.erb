@@ -6,8 +6,9 @@
             <%= f.text_field :name %> <br>
            </div>
             <div>
-                <%= f.label :completed, 'Completed?' %>
-                <%= f.check_box :completed %> <br>
+                              
+     <h3>Completed? <%= f.select :completed, [ 'yes','no' ], :prompt => 'Select One' %>
+</h3> 
 
                 <%= f.label :due, 'Due Date' %>
                 <%= f.date_field :due %> <br>

@@ -3,9 +3,8 @@ class AssignmentsController < ApplicationController
     
 
     def index 
-    # binding.pry
-      @assignments = current_user.assignments.sorted_completed
-      end 
+      @assignments = current_user.assignments.incomplete.all
+     end 
 
     def new
         @assignment = Assignment.new
