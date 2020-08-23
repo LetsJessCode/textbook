@@ -4,7 +4,6 @@ class AssignmentsController < ApplicationController
     def index
         @assignments = Assignment.all
         @user = User.find_by_id(params[:id])
-        @subject = Subject.find_by_id(params[:id])
     end
 
     def new

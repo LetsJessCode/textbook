@@ -1,9 +1,12 @@
-<h1><%= @user.first %>'s Assignments</h1>
-    <% @user.assignments.each do |assignment| %>
-       <li>Subject: <%= assignment.course.name %></li> 
+  <h1> <%= current_user.first %>'s BackPack</h1>
+   <% current_user.assignments.each do |assignment| %>
+       <h3>Subject: <%= assignment.course.name %></h3> 
        <li>Assignment Name: <%= assignment.name %></li> 
        <li>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></li>
        <li>Completed?: <%= assignment.completed %></li> 
        <li>Comments/Concerns: <%= assignment.comment %></li> 
+       <%= link_to 'Edit Assignment', edit_user_assignment_path(@user) %>
         <hr>
      <% end %>
+ 
+      

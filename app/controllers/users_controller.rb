@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:index, :edit, :show, :destroy]
 
-    def index
+    def index ###not sure i want to set it up like this as of yet
         @users = User.all
     end
     
-    def new
+    def new 
         @user = User.new
     end
 

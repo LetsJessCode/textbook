@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     end
     
     def create
-        binding.pry
+        # binding.pry
         @user = User.find_by_email(user_params[:email])
 
         if @user && @user.authenticate(user_params[:password])
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     end
 
 
-    def destroy
+    def destroy #need to check why it doesn't route to root properly.
         session.clear
         redirect_to root_path
     end
