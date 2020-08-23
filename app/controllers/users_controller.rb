@@ -1,25 +1,29 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:index]
+    before_action :set_user, only: [:index, :edit, :show, :destroy]
 
+    def index
+        @users = User.all
+    end
+    
     def new
         @user = User.new
     end
 
-    def create
+    def create ### the code is trying to still send to next page even if the params are invalid
         @user = User.new(user_params)
-        
         if @user.save
         session[:user_id] = @user.id
-            redirect_to users_path(@user)
+            redirect_to root_path
         else 
             render :new
         end
     end
 
+    def edit
 
-    def index
-        @users = User.all
     end
+
+    
 
     def show 
         @assignment = Assignment.find_by_id(params[:id])
@@ -31,12 +35,17 @@ class UsersController < ApplicationController
     end
 
     def update
-        @assignment = Assignment.find_by_id(params[:id])
-        if @user && @user_id == @assignment.user_id
-            redirect_to edit_user_assignment_path(user)
+        if current_user && @user_id == @user.id
+            @user.update
+            redirect_to user_path(current_user)
         else
-            render :index
+            render :edit
         end
+    end
+
+    def destroy
+        @user.destroy
+        redirect_to root_path
     end
 
     private

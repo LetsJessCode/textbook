@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+
+  <div>
+    <%= f.label :first, 'First Name' %>
+    <%= f.text_field :first %>
+  </div>
+
+   <div>
+    <%= f.label :last, 'Last Name' %>
+    <%= f.text_field :last %>
+  </div>
+
+   <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+   <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= link_to 'Delete Account', user_path(@user), method: 'delete' %>
+   <%= f.submit 'Edit'%>
+   <% end %>

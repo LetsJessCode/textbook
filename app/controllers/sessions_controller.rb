@@ -4,7 +4,15 @@ class SessionsController < ApplicationController
     end
     
     def create
-        user = User.find_by(email: params["user"]["email"]).try(:authenticate, params["user"]["password"])
+        binding.pry
+        @user = User.find_by_email(user_params[:email])
+
+        if @user && @user.authenticate(user_params[:password])
+            session[:user_id] = @user.id
+             redirect_to users_path(@user)
+        else
+            render :new
+        end 
     end
 
 
@@ -15,6 +23,6 @@ class SessionsController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :first, :last)
     end
 end
