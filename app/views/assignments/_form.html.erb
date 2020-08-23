@@ -1,6 +1,4 @@
-<h1><%= current_user.first %> New Assignment </h1>
-
-<%= form_for ([current_user, @assignment]) do |f| %>        
+<%= form_for  assignment  do |f| %>        
    <%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h4>
      <div>
            <%= f.label :name %>
@@ -16,5 +14,5 @@
             <%= f.label :comment, 'Comments/Questions' %>
             <%= f.text_area :comment %> <br>
             
-            <%= f.submit 'Add Assignment' %>
+            <%= f.submit button_name %>
             <% end %>
