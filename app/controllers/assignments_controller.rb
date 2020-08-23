@@ -2,15 +2,19 @@ class AssignmentsController < ApplicationController
     before_action :this_assignment, only: [:show, :edit, :update, :destroy]
     
 
-    def index
-        @assignments = current_user.assignments.all
-    end
+    def index 
+      if params[:term]
+        @assignments = Assignment.search(params[:term])
+      else
+        @assignments = current_user.assignments.incomplete
+      end
+    end 
 
     def new
         @assignment = Assignment.new
     end
 
-    def create
+    def create #working!
         #  binding.pry
      @assignment = current_user.assignments.build(assignment_params)
         if @assignment.save
@@ -21,11 +25,11 @@ class AssignmentsController < ApplicationController
       end
   end
 
-    def show
+    def show #this is good!
 
     end
 
-    def edit
+    def edit ###not working....current_user is showing nil
       binding.pry
       current_user
       if @assignment && @assignment.id == current_user
