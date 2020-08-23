@@ -5,5 +5,6 @@
        <li>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></li>
        <li>Completed?: <%= assignment.completed %></li> 
        <li>Comments/Concerns: <%= assignment.comment %></li> 
+       <%= link_to 'Edit Assignment', edit_user_assignment_path(@user) %>
         <hr>
      <% end %>
