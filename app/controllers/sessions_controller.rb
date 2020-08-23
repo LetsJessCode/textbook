@@ -15,6 +15,16 @@ class SessionsController < ApplicationController
         end 
     end
 
+    def omniauth  
+      user = User.create_from_omniauth(auth)       
+       if user.valid?           
+         session[:user_id] = user.id          
+           redirect_to user_path(current_user)        
+      else           
+          flash[:message] = user.errors.full_messages.join(", ")          
+             redirect_to sessions_login_path        
+        end 
+     end 
 
     def destroy #need to check why it doesn't route to root properly.
         session.clear
@@ -24,5 +34,9 @@ class SessionsController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:email, :password, :first, :last)
+    end
+
+    def auth   
+      request.env['omniauth.auth'] 
     end
 end
