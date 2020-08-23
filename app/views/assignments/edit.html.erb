@@ -1,3 +1,19 @@
 <h1>Edit Page </h1>
 
-    
+    <%= form_for @user do |f| %>       
+           <%= f.collection_select :courses, Course.all, :id, :name, prompt: true %></h4>
+           <div>
+           
+           </div>
+            <div>
+                <%= f.label :completed, 'Completed?' %>
+                <%= f.check_box :completed %> <br>
+
+                <%= f.label :due, 'Due Date' %>
+                <%= f.date_field :due %> <br>
+            </div>
+            <%= f.label :comments, 'Comments/Questions' %>
+            <%= f.text_area :comments %> <br>
+            
+            <%= f.submit 'Add Subject' %>
+            <% end %>

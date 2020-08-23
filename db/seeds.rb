@@ -6,9 +6,9 @@ Assignment.destroy_all
 courses = Course.create([{ name: 'English'}, { name: 'Science' },{ name: 'Math' }, { name: 'History' }, { name: 'Language Arts' }, { name: 'Foreign Languages' }, { name: 'Electives' }, { name: 'Other' }])
     
 
-user1 = User.create({first: 'Listen', last: 'Linda'} )
+user1 = User.create({first: 'Listen', last: 'Linda', email: 'test@test.com', password: 'abcds', password_confirmation: 'abcds'} )
 
-user2 = User.create({first: 'Justin', last: 'Time' } )
+user2 = User.create({first: 'Justin', last: 'Time', email: 'tes2t@test.com', password: 'password', password_confirmation: 'password' } )
 
 5.times do
     # binding.pry

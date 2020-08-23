@@ -21,6 +21,7 @@ class AssignmentsController < ApplicationController
 
     def edit
        @user = User.find_by_id(params[:id])
+       @course = Course.find_by_id(params[:id])
     end
 
     def update
