@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  resources :sessions, only: [create]
-  root to: 'static#home'
+root to: 'static#home'
+ 
+get "/signup", to: "users#new", as: "signup" #(signup path)
+post "/signup", to: "users#create"
+
+get "login", to: "sessions#new", as: "login"
+post "/login", to: "sessions#create"
+
+delete "/logout", to: "sessions#destroy", as: "logout"
+  # resources :sessions, only: [create]
+  
   resources :users do
     resources :assignments
   end
