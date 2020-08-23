@@ -1,0 +1,8 @@
+
+<div><ul>
+    
+    <% @courses.each do |course| %>
+     <li><%= link_to course.name, course_path(course) %></li>
+     <hr>
+    <% end %></ul>
+</div>

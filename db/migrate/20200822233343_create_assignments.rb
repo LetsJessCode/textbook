@@ -6,7 +6,7 @@ class CreateAssignments < ActiveRecord::Migration[6.0]
       t.date :due
       t.text :comment
       t.references :course, null: false, foreign_key: true
-      t.references :subject, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
