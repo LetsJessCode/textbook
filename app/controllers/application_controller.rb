@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+    add_flash_types :info, :error, :warning
+    
     helper_method :current_user, :logged_in?
 
     private

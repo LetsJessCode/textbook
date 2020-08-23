@@ -1,6 +1,7 @@
-    <h1>Course Assignments </h1>
+    <h1><%= @course.name %> Assignments </h1>
     
     <% @course.assignments.each do |assignment| %>
-       <h3><%= assignment.name %></h3> 
-       
+       <h3><%= link_to assignment.name %></h3> 
+        <p>Due: <%= assignment.due.strftime("%m/%d/%Y") %></p>
+       <hr>
     <% end %>

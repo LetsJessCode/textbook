@@ -13,6 +13,7 @@ delete "/logout", to: "sessions#destroy", as: "logout"
   resources :users do
     resources :assignments
   end
+
   get 'auth/:provider/callback', to: 'sessions#omniauth'
   
   resources :courses, only: [:index, :show]

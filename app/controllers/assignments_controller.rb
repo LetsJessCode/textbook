@@ -3,13 +3,9 @@ class AssignmentsController < ApplicationController
     
 
     def index 
-      # binding.pry
-      if params[:term]
-        @assignments = Assignment.search(params[:term])
-      else
-        @assignments = current_user.assignments.incomplete
-      end
-    end 
+    # binding.pry
+      @assignments = current_user.assignments.sorted_completed
+      end 
 
     def new
         @assignment = Assignment.new
@@ -27,13 +23,14 @@ class AssignmentsController < ApplicationController
   end
 
     def show #this is good!
-
+    
     end
 
     def edit ###not working....current_user is showing nil
       current_user
       if @assignment && @assignment.id == current_user
           redirect_to user_edit_assignment_path(current_user, @assignment)
+          flash[:message] = "Successfully Updated Assignment"
       else
         render :edit
     end
@@ -42,15 +39,22 @@ class AssignmentsController < ApplicationController
     def update
       current_user
       if @assignment.update(assignment_params)
-        redirect_to user_assignment_path(current_user, @assignment)
+        redirect_to user_assignments_path(current_user, @assignment)
       else
         render :edit
       end
     end
 
     def destroy
-
+      current_user
+      if current_user.assignment.find_by(params[:id]).destroy
+         redirect_to user_assignments_path(current_user)
+      else
+         render :edit
+     end  
+    
     end
+    
 
   private
     def assignment_params
