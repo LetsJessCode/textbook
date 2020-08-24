@@ -26,7 +26,8 @@ class AssignmentsController < ApplicationController
   end
 
     def show #this is good!
-    
+      @assignment = Assignment.find_by_id(params[:id])
+      @user = User.find_by_id(params[:id])
     end
 
     def edit ###not working....current_user is showing nil

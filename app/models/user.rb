@@ -1,12 +1,12 @@
 class User < ApplicationRecord
     has_many :assignments, dependent: :destroy
     has_many :courses, through: :assignments
+    has_many :comments, through: :assignments
+    
+
+    validates :email, presence: true, uniqueness: true
     has_secure_password
-
-    validates_presence_of :email
-    validates_uniqueness_of :email
-    validates :password, presence: true
-
+    
     def self.create_from_omniauth(auth)     
        User.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |u|         
             u.first = auth[:info][:first_name]           

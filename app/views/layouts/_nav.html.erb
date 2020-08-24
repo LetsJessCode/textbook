@@ -9,7 +9,6 @@
       <%= link_to 'Login', login_path %>  |
         <%=link_to 'Signup', signup_path %>  |
     <% else %> 
-      <%=link_to 'Edit User Info', edit_user_path(current_user) %> |
        <%=link_to 'Add Assignment', new_user_assignment_path(current_user) %> |
       <%=link_to 'Your BackPack', user_assignments_path(current_user) %> |
     <%=link_to 'Logout', logout_path, method: 'delete'%>

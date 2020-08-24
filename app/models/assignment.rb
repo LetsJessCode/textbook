@@ -1,6 +1,8 @@
 class Assignment < ApplicationRecord
   belongs_to :course
   belongs_to :user
+  has_many :comments
+  has_many :users, through: :comments
 
    #works!
   scope :due_date, -> { where.not(due: nil)}
