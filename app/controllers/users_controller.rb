@@ -18,11 +18,6 @@ class UsersController < ApplicationController
             render :new
         end
     end
-
-    def edit
-
-    end
-
     
 
     def show 
@@ -30,8 +25,7 @@ class UsersController < ApplicationController
         @course = Course.find_by_id(params[:id])
     end
 
-    def edit
-        
+    def edit   
     end
 
     def update

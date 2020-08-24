@@ -3,8 +3,12 @@ class AssignmentsController < ApplicationController
     
 
     def index 
-      @assignments = current_user.assignments.incomplete.all
+      if params[:term]
+        @assignments = Assignment.search(params[:term])
+      else
+      @assignments = Assignment.sorted_incomplete
      end 
+    end
 
     def new
         @assignment = Assignment.new
@@ -44,16 +48,6 @@ class AssignmentsController < ApplicationController
       end
     end
 
-    def destroy
-      current_user
-      if current_user.assignment.find_by(params[:id]).destroy
-         redirect_to user_assignments_path(current_user)
-      else
-         render :edit
-     end  
-    
-    end
-    
 
   private
     def assignment_params
