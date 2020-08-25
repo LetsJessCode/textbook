@@ -25,7 +25,8 @@ class UsersController < ApplicationController
         @course = Course.find_by_id(params[:id])
     end
 
-    def edit   
+    def edit  
+         @user = User.find_by_id(params[:id])
     end
 
     def update
@@ -38,8 +39,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-     current_user
-        @user.destroy
+     user = User.find_by_id(params[:id]) 
+        user.destroy
         redirect_to root_path
     end
 

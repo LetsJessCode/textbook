@@ -20,6 +20,6 @@
     <%= f.password_field :password %>
   </div>
 
-  <%= link_to 'Delete Account', user_path(@user), method: 'delete' %>
+  <%= link_to 'Delete Account', user_path(current_user), method: 'delete' %>
    <%= f.submit 'Edit'%>
    <% end %>

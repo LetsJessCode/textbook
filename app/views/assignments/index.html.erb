@@ -1,4 +1,4 @@
-  <h1> <%= current_user.first %>'s BackPack</h1>
+  <h1> <%= current_user.first %>'s Todo List: </h1>
      <% @assignments.each do |assignment| %>
        <h3>Subject: <%= assignment.course.name %></h3> 
        <li>Assignment Name: <%= assignment.name %></li> 

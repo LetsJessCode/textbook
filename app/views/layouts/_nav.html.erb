@@ -4,13 +4,13 @@
      <%=link_to 'View Courses', courses_path %> |
     <%=link_to 'Visit Homeroom', users_path %> |
   
-    <% unless logged_in? %>  
-       
+    <% if logged_in? %>  
+    <%# binding.pry %>
+      <%=link_to 'Edit Profile', edit_user_path(current_user) %>
+       <%=link_to 'Add Assignment', new_user_assignment_path(current_user) %> |
+      <%=link_to 'Your Todo List', user_assignments_path(current_user) %> |
+     <%=link_to 'Logout', logout_path, method: 'delete'%> 
+    <% else %> 
       <%= link_to 'Login', login_path %>  |
         <%=link_to 'Signup', signup_path %>  |
-    <% else %> 
-       <%=link_to 'Add Assignment', new_user_assignment_path(current_user) %> |
-      <%=link_to 'Your BackPack', user_assignments_path(current_user) %> |
-    <%=link_to 'Logout', logout_path, method: 'delete'%>
-   
-    <% end %> 
+  <% end %> 
