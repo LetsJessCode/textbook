@@ -1,10 +1,11 @@
     <h1><%= @course.name %> Assignments </h1>
     
     <% @course.assignments.each do |assignment| %>
-       <h3><%=  assignment.name %></h3> 
-        <p>Due: <%= assignment.due.strftime("%m/%d/%Y") %></p>
-         <p> Student's Assignment: <%= assignment.user.first %> <%= assignment.user.last %></p>
-         <p> Completed: <%= assignment.completed %></p>
+         <h3> Student: <%= assignment.user.first %> <%= assignment.user.last %></h3>
+         <h5>Homework Assignment: <%=  assignment.name %></h5> 
+         <h5>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></h5>
+         <h5> Completed: <%= assignment.completed %> </h5>
+         <h5> Student Question/Concern: <%= assignment.comment %></h5>
     <hr>
     <% end %>
 

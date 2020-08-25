@@ -3,7 +3,7 @@
        <h3>Subject: <%= assignment.course.name %></h3> 
        <li>Assignment Name: <%= assignment.name %></li> 
        <li>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></li>
-       <li>Completed?: <%= assignment.completed %></li> 
+       <li>Completed?: <%= assignment.sorted_incomplete %></li> 
        <li>Comments/Concerns: <%= assignment.comment %></li> 
        <%= link_to 'Edit Assignment', edit_user_assignment_path(current_user, assignment) %>
         <hr>
