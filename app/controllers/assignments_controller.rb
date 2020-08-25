@@ -1,14 +1,10 @@
 class AssignmentsController < ApplicationController
     before_action :this_assignment, only: [:show, :edit, :update, :destroy]
-    
 
     def index 
-      if params[:term]
-        @assignments = Assignment.search(params[:term])
-      else
-      @assignments = Assignment.sorted_incomplete
+    # binding.pry
+      @assignments = current_user.assignments.all.sorted_incomplete
      end 
-    end
 
     def new
         @assignment = Assignment.new
@@ -34,8 +30,9 @@ class AssignmentsController < ApplicationController
       current_user
       if @assignment && @assignment.id == current_user
           redirect_to user_edit_assignment_path(current_user, @assignment)
-          flash[:message] = "Successfully Updated Assignment"
+          
       else
+        
         render :edit
     end
   end 
@@ -44,8 +41,10 @@ class AssignmentsController < ApplicationController
       current_user
       if @assignment.update(assignment_params)
         redirect_to user_assignments_path(current_user, @assignment)
+        flash[:message] = "Successfully Updated Assignment"
       else
         render :edit
+        flash[:message] = "You are not authorized to update assignment"
       end
     end
 
