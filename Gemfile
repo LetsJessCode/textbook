@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'pry'
 
+gem "bootstrap_form", "~> 4.0"
+
 gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
