@@ -9,11 +9,11 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
-    def create ### the code is trying to still send to next page even if the params are invalid
+    def create ### working!!!
         @user = User.new(user_params)
         if @user.save
         session[:user_id] = @user.id
-            redirect_to root_path
+            redirect_to user_assignments_path(current_user)
         else 
             render :new
         end

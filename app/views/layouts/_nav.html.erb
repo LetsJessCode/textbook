@@ -1,16 +1,33 @@
-     
+ <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <%=link_to 'TextBook', root_path %></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%=link_to 'Visit Homeroom', users_path %></li>
+        <li> <%=link_to 'View Courses', courses_path %></li>
+       <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+      </ul>
+    </div>
+    <div class="nav-content">
+      <% if logged_in? %>  
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><%=link_to 'Edit User Profile', edit_user_path(current_user) %></li>
+        <li class="tab"><%=link_to 'Add Assignment', new_user_assignment_path(current_user) %></li>
+        <li class="tab"> <%=link_to 'Homework Folder', user_assignments_path(current_user) %></li>
+        <li class="tab"><%=link_to 'Logout', logout_path, method: 'delete'%></li>
+       <% else %> 
+         <li class="tab"><%= link_to 'Login', login_path %></li>
+        <li class="tab"><%=link_to 'Signup', signup_path %></li>
+       <% end %> 
+      </ul>
+    </div>
+  </nav>
 
-     <%=link_to 'Home', root_path %> |
-     <%=link_to 'View Courses', courses_path %> |
-    <%=link_to 'Visit Homeroom', users_path %> |
   
-    <% if logged_in? %>  
-    <%# binding.pry %>
-      <%=link_to 'Edit User Profile', edit_user_path(current_user) %>
-       <%=link_to 'Add Assignment', new_user_assignment_path(current_user) %> |
-        <%=link_to 'Homework Folder', user_assignments_path(current_user) %> |
-        <%=link_to 'Logout', logout_path, method: 'delete'%> 
-     <% else %> 
-         <%= link_to 'Login', login_path %>  |
-        <%=link_to 'Signup', signup_path %>  |
-  <% end %> 
+
+ <!-- <div id="test1" class="col s12">Test 1</div>
+  <div id="test2" class="col s12">Test 2</div>
+  <div id="test3" class="col s12">Test 3</div>
+  <div id="test4" class="col s12">Test 4</div> -->
+        
+  

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
         if @user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
-             redirect_to users_path(@user)
+             redirect_to user_assignments_path(@user)
              flash[:notice] = "Successfully Logged In!"
         else
             flash[:message] = "Incorrect Email or Password"         
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       user = User.create_from_omniauth(auth)       
        if user.valid?           
          session[:user_id] = user.id          
-           redirect_to user_path(current_user)    
+           redirect_to user_assignments_path(current_user)    
            flash[:notice] = "Successfully Logged In!"
       else           
           flash[:message] = "Incorrect Login Information"          

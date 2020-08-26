@@ -28,18 +28,14 @@ class AssignmentsController < ApplicationController
 
     def edit ###not working....current_user is showing nil
       current_user
-      if @assignment && @assignment.id == current_user
-          redirect_to user_edit_assignment_path(current_user, @assignment)
-      else
-        render :edit
-    end
   end 
 
     def update
       current_user
-      if @user_id && @user.id == @assignment.update(assignment_params)
-        redirect_to user_assignments_path(current_user, @assignment)
+       if @user && @user_id == @assignment.user_id
+          @assignment.update(assignment_params)
         flash[:message] = "Successfully Updated Assignment"
+        redirect_to user_assignments_path(current_user, @assignment)
       else
         flash[:message] = "You are not authorized to update assignment"
           redirect_to user_assignments_path(current_user)
