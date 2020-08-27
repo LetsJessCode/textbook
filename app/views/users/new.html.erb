@@ -2,24 +2,33 @@
 
 <%= form_for @user do |f| %>
 
-  <div>
-    <%= f.label :first, 'First Name' %>
-    <%= f.text_field :first %>
-  </div>
-
-   <div>
-    <%= f.label :last, 'Last Name' %>
-    <%= f.text_field :last %>
-  </div>
-
-   <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-   <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-   <%= f.submit 'Signup'%>
+<div class="row">
+  <form class="col s12">
+   <div class="row">
+     <div class="input-field col s6">
+       <input placeholder='First Name' id="first" type="text"   class="validate">
+        <label for=<%= f.text_field :first %></label>
+     </div>
+       <div class="input-field col s6">
+          <input placeholder="Last Name" id="last" type="text" class="validate">
+          <label for=<%= f.text_field :last %></label>
+       </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email"><%= f.text_field :email %></label>
+       </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password"><%= f.password_field :password %></label>
+        </div>
+      </div>
+ <button class="deep-orange lighten-4" "btn waves-effect waves-light" 
+    <i class="material-icons right"><%= f.submit 'Signup'%></i>
+  </button>
    <% end %>
+    </form>
+<div>

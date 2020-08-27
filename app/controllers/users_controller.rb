@@ -14,8 +14,10 @@ class UsersController < ApplicationController
         if @user.save
         session[:user_id] = @user.id
             redirect_to user_assignments_path(current_user)
+            flash[:notice] = "Successfully Logged In!"
         else 
             render :new
+            flash[:message] = "Email or Password already taken"
         end
     end
     
