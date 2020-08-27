@@ -15,17 +15,18 @@
             
     
 
-  <body class =" amber lighten-4">
-  <div class="container">    
-    <%= yield %>
-  <footer>
+<nav class= "deep-orange lighten-4">
     <% if logged_in? %>
         <%=link_to 'Logout', logout_path, method: 'delete'%> 
    <% else %> 
          <%= link_to 'Login', login_path %>  |
          <%=link_to 'Signup', signup_path %>  |
      <% end %>
-   </footer>
+   </nav>
+  <body class ="grey lighten-5">
+  <div class="container">    
+    <%= yield %>
+  
    </div>
    </body>
 </html>
