@@ -1,12 +1,18 @@
-  <h1> <%= current_user.first %>'s Homework Folder: </h1>
+  <div class="title-container">
+  <h1> <%= current_user.first %>'s Homework Folder </h1>
+  </div>
      <% @assignments.each do |assignment| %>
-       <h3>Subject: <%= assignment.course.name %></h3> 
-       <li>Assignment Name: <%= assignment.name %></li> 
-       <li>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></li>
-       <li>Completed?: <%= assignment.completed %></li> 
-       <li>Comments/Concerns: <%= assignment.comment %></li> 
-       <%= link_to 'Edit Assignment', edit_user_assignment_path(current_user, assignment) %>
+     <div class="assignment">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>Subject: <%= assignment.course.name %></h3> 
+          <h5>Assignment Name: <%= assignment.name %></h5>
+          <p>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></p>
+          <p>Completed?: <%= assignment.completed %></p> 
+          <p>Comments/Concerns: <%= assignment.comment %></p> 
+          <%= link_to 'Edit Assignment', edit_user_assignment_path(current_user, assignment), class: "btn btn-default" %>
         <hr>
-     <% end %>
- 
-      
+       <% end %>
+      </div>
+    </div>
+  </div>
