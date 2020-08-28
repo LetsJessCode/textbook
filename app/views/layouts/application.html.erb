@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Textbook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
- <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
             
     
 
   <body>
-  <%= render 'layouts/nav'%>
+    <%= render 'layouts/nav'%>
     <% flash.each do |type, msg| %>
   <div>
        <%= msg %>
@@ -24,4 +21,5 @@
 <% end %>
     <%= yield %>
   </body>
+  
 </html>

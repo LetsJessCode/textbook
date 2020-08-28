@@ -1,29 +1,29 @@
      
-<nav class="deep-orange lighten-4", "nav-extended">
-<body class="grey lighten-5">
-    <div class="nav-wrapper">
-      <%=link_to 'Home', root_path %>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-     <%=link_to 'View Courses', courses_path %> 
-     <ul id="nav-mobile" class="right hide-on-med-and-down">
-    <% if logged_in? %>  
-    <%# binding.pry %>
-      <li><%=link_to 'Edit UserProfile', edit_user_path(current_user) %></li>
-       <li><%=link_to 'Add Assignment', new_user_assignment_path(current_user) %></li>  
-      <li><%=link_to 'Your Homework', user_assignments_path(current_user) %></li>
-      <li><%=link_to 'Logout', logout_path, method: 'delete'%></li>
-     </ul>
-   </div>
-   <div class="nav-content">
-      <ul class="tabs tabs-transparent">
-     <% else %> 
-         <li class ="tab"><%= link_to 'Login', login_path %></li>
+<header class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%=link_to 'Home', root_path, class: "navbar-brand" %>
+        <%=link_to 'View Courses', courses_path, class: "navbar-brand" %>
+      </div>
+      
+      <ul class="nav navbar-nav navbar-right">    
+      <% if logged_in? %>  
+         <%# binding.pry %>
+        <li><%=link_to 'Edit UserProfile', edit_user_path(current_user) %></li>
+        <li><%=link_to 'Add Assignment', new_user_assignment_path(current_user) %></li>  
+        <li><%=link_to 'Your Homework', user_assignments_path(current_user) %></li>
+        <li><%=link_to 'Logout', logout_path, method: 'delete'%></li>   
+      <% else %> 
+        <li class ="tab"><%= link_to 'Login', login_path %></li>
         <li class="tab"><%=link_to 'Signup', signup_path %></li> 
-        </ul>
-  <% end %>   
-</nav>
-  <div id="Edit UserProfile" class="col s12">Edit User Profile </div>
-  <div id="Add Assignment" class="col s12">Add Assignment</div>
-  <div id="Your Homework" class="col s12">Your Homework</div>
-  <div id="Logout" class="col s12">Logout</div>
-     </body> 
+      <% end %>   
+     </ul>
+    </div>
+  </nav>
+</header>      
+     
+    
+   
+
+  

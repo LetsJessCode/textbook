@@ -26,6 +26,10 @@ gem 'pry'
 
 gem "bootstrap_form", "~> 4.0"
 
+gem 'jquery-rails'
+
+gem 'bootstrap-sass', '~> 3.4.1'
+
 gem 'omniauth'
 
 gem 'omniauth-google-oauth2'

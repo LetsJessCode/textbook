@@ -1,21 +1,20 @@
 <h1><%= current_user.first %> New Assignment </h1>
 
 <%= form_for ([current_user, @assignment]) do |f| %>        
-  <h3>Select Your Assignment Subject <%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h3>
-   </h4>
-       <div>
+  <h3>Select Your Assignment Subject</h3>
+  
+ <h5><%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h5>
            <%= f.label :name %>
             <%= f.text_field :name %> <br>
            </div>
                  
-     <h3>Completed? <%= f.select :completed, [ 'yes','no' ], :prompt => 'Select One' %>
-</h3> 
-                <%= f.label :due, 'Due Date' %>
-                <%= f.date_field :due %> <br>
-            </div>
+     <h3>Completed? <%= f.select :completed, [ 'yes','no' ], :prompt => 'Select One' %> <br></h3> 
+        <div>
+            <%= f.label :due, 'Due Date' %>
+            <%= f.date_field :due %> <br>
+        </div>
             <%= f.label :comment, 'Comments/Questions' %>
             <%= f.text_area :comment %> <br>
             
             <%= f.submit 'Add Assignment' %>
             <% end %>
-
