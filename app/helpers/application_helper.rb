@@ -1,9 +1,9 @@
 module ApplicationHelper
-    def alert_class(flash_type)
-        case flash_type.to_sym
-        when :notice
+    def add_flash_types(flash)
+        case flash.to_sym
+        when :info
             "alert-success"
-        when :alert
+        when :warning
             "alert-warning"
         when :error
             "alert-danger"

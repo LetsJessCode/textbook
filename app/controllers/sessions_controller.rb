@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
     def new
         @user = User.new
     end
@@ -10,9 +11,9 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
              redirect_to user_assignments_path(@user)
-             flash[:notice] = "Successfully Logged In!"
+             flash[:info] = "Successfully Logged In!"
         else
-            flash[:message] = "Incorrect Email or Password"         
+            flash[:error] = "Incorrect Email or Password"         
              redirect_to login_path    
         end 
     end
@@ -22,16 +23,16 @@ class SessionsController < ApplicationController
        if user.valid?           
          session[:user_id] = user.id          
            redirect_to user_assignments_path(current_user)    
-           flash[:notice] = "Successfully Logged In!"
+           flash[:info] = "Successfully Logged In!"
       else           
-          flash[:message] = "Incorrect Login Information"          
+          flash[:error] = "Incorrect Login Information"          
              redirect_to sessions_login_path        
         end 
      end 
 
-    def destroy #need to check why it doesn't route to root properly.
+    def destroy #works properly!
         session.clear
-        flash[:message] = "Have a great day!"
+        flash[:info] = "Have a great day!"
         redirect_to root_path
     end
 

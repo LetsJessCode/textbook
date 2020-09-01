@@ -2,6 +2,13 @@
 <h1><%= current_user.first %> New Assignment </h1>
 </div>
 
+ <%= render partial: "assignments/form", locals: {assignment: @assignment, button_name: "New Assignment"} %>
+
+
+<!-- <div class="title-container">
+    <h1><%= current_user.first %> New Assignment </h1>
+</div>
+
 <%= form_for ([current_user, @assignment]) do |f| %>        
   <h3>Select Your Assignment Subject</h3>
   
@@ -23,4 +30,4 @@
             <div class="actions">
                 <%= f.submit 'Add Assignment', class: "btn btn-primary" %>
             </div>
-            <% end %>
+            <% end %> ->

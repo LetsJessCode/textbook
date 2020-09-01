@@ -2,7 +2,10 @@
     <h1>Edit Page </h1>
     </div>
     
-   <%= form_for([current_user, @assignment])   do |f| %>        
+  <%= render partial: "assignments/form", locals: {assignment: @assignment, button_name: "Edit Assignment"} %>
+
+
+  <!-- <%= form_for([current_user, @assignment])   do |f| %>        
   <h3>Update Subject
    <%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h4>
      </h3>
@@ -20,5 +23,5 @@
             <%= f.text_area :comment %> <br> <br>
             
             <%= f.submit 'Update Assignment'  %>
-            <% end %>
+            <% end %> -->
             

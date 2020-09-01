@@ -1,0 +1,27 @@
+
+
+<%= form_for ([current_user, assignment]) do |f| %>        
+  <h3>Select Your Assignment Subject</h3>
+  
+ <h5><%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h5>
+           <div class="form-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control" %><br>
+           </div>
+                 
+     <h3>Completed? <%= f.select :completed, [ 'yes','no' ], :prompt => 'Select One' %></h3>
+            <br>
+        <div class="form-group">
+            <%= f.label :due, 'Due Date' %>
+            <%= f.date_field :due, class: "form-control" %><br>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :comment, 'Comments/Questions' %>
+            <%= f.text_area :comment, class: "form-control" %><br>
+        </div>
+        
+        <div class="actions">
+            <%= f.submit button_name, class: "btn btn-primary" %>
+        </div>
+            <% end %>

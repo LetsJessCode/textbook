@@ -34,7 +34,6 @@ class AssignmentsController < ApplicationController
 
     def update
       current_user
-      # if @assignment.update(assignment_params)
         if current_user && current_user.id == @assignment.user_id
           @assignment.update(assignment_params)
         flash[:message] = "Successfully Updated Assignment"
