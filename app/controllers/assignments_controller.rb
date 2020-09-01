@@ -16,8 +16,10 @@ class AssignmentsController < ApplicationController
         if @assignment.save
             # binding.pry
           redirect_to user_assignments_path(current_user, @assignment)
+          flash[:notice] = "Assignment Added Successfully!"
         else
           render :new
+          flash[:message] = "Please enter all fields in correctly"
       end
   end
 
@@ -32,7 +34,8 @@ class AssignmentsController < ApplicationController
 
     def update
       current_user
-       if @user && @user_id == @assignment.user_id
+      # if @assignment.update(assignment_params)
+        if current_user && current_user.id == @assignment.user_id
           @assignment.update(assignment_params)
         flash[:message] = "Successfully Updated Assignment"
         redirect_to user_assignments_path(current_user, @assignment)

@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Textbook</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
- <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<header class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+         <% if logged_in? %> 
+            <%=link_to 'Logout', logout_path, method: 'delete', class: "navbar-brand" %> 
+            <%=link_to 'Your Homework',  user_assignments_path(current_user), class: "navbar-brand" %>
+      </div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-    
-    
-      
+            <ul class="nav navbar-nav navbar-right">    
+         <% else %> 
+            <li><%= link_to 'Login', login_path %> </li>
+            <li><%=link_to 'Signup', signup_path %> </li>
+         <% end %>
+             <%= yield %>
+          </ul>
+       </div>
+      </nav>
+   </header>  
 
-    
-
-
-    <% if logged_in? %>
-      <li> <%=link_to 'Logout', logout_path, method: 'delete'%></li> 
-      <li><%=link_to 'Your Homework', user_assignments_path(current_user) %></li>
-   <% else %> 
-       <li> <%= link_to 'Login', login_path %> </li>
-        <li><%=link_to 'Signup', signup_path %> </li>
-     <% end %>
-       </ul>
-    </div>
-
-   </nav>
-    <%= yield %>
-  
-   </div>
-   </body>
-</html>

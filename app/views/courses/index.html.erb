@@ -1,8 +1,12 @@
+<div class="title-container">
+<h1>Courses</h1>
+</div>
 
-<div><ul>
-    
+<div>
+    <ul>
     <% @courses.each do |course| %>
-     <li><%= link_to course.name, course_path(course) %></li>
-     <hr>
-    <% end %></ul>
+        <li><%= link_to course.name, course_path(course) %></li>
+        <% end %>
+            <hr>
+    </ul>
 </div>
