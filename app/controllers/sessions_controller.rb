@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
     def destroy #works properly!
         session.clear
         flash[:info] = "Have a great day!"
-        redirect_to root_path
+        redirect_to login_path
     end
 
     private
