@@ -1,6 +1,7 @@
  <h1>Homeroom</h1>
  <% @users.each do |user| %>
-  <h2><%= link_to user.first, user_path(user) %><%= user.last.chars.first%></h2>
+  <h2><%= link_to user.first, user_path(user) %> 
+  <%= link_to user.last, user_path(user) %></h2>
         
    <hr>
    <% end %>
