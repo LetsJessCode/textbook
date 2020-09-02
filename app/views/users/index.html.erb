@@ -1,7 +1,12 @@
- <h1>Homeroom</h1>
- <% @users.each do |user| %>
-  <h2><%= link_to user.first, user_path(user) %> 
-  <%= link_to user.last, user_path(user) %></h2>
-        
-   <hr>
-   <% end %>
+<div class="title-container">
+    <h1>Homeroom</h1>
+</div>
+<div>
+    <ol>
+        <% @users.each do |user| %>
+          <li><h2><%= link_to user.first, user_path(user) %> 
+          <%= link_to user.last, user_path(user) %></li></h2>    
+          <hr>
+        <% end %>
+    </ol>
+</div>

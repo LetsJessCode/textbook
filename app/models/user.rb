@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-    has_many :assignments, dependent: :destroy
+    has_many :assignments
     has_many :courses, through: :assignments
-    has_many :comments, through: :assignments
     
 
     validates :email, presence: true, uniqueness: true

@@ -1,11 +1,13 @@
-        <div class="title-container">
+   <div class="title-container">
         <h3><%= @assignment.name %></h3>
   </div>
-  
-     <li>Subject: <%= @assignment.course.name %></li> 
-     <li>Assignment Name: <%= @assignment.name %></li> 
-     <li>Due Date: <%= @assignment.due.strftime("%m/%d/%Y") %></li>
-     <li>Completed?: <%= @assignment.completed %></li> 
-     <li>Comments/Concerns: <%= @assignment.comment %></li> 
-
+  <div>
+    <ol>
+         <li>Subject: <%= @assignment.course.name %></li> 
+         <li>Assignment Name: <%= @assignment.name %></li> 
+         <li>Due Date: <%= @assignment.due.strftime("%m/%d/%Y") %></li>
+         <li>Completed?: <%= @assignment.completed %></li> 
+         <li>Comments/Concerns: <%= @assignment.comment %></li> 
+    </ol>
+</div>
   <h5>Response</h5>
