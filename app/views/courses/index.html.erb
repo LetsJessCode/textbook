@@ -4,8 +4,8 @@
 
 <div>
     <ul>
-    <% @courses.each do |course| %>
-        <li><%= link_to course.name, course_path(course) %></li>
+        <% @courses.each do |course| %>
+            <li><%= link_to course.name, course_path(course) %></li>
         <% end %>
             <hr>
     </ul>
