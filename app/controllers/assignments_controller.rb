@@ -28,11 +28,11 @@ class AssignmentsController < ApplicationController
       @user = User.find_by_id(params[:id])
     end
 
-    def edit ###not working....current_user is showing nil
+    def edit ###working
       current_user
   end 
 
-    def update
+    def update ##working
       current_user
         if current_user && current_user.id == @assignment.user_id
           @assignment.update(assignment_params)

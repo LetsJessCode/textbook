@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         @user = User.new
     end
     
-    def create
+    def create #working
         @user = User.find_by_email(user_params[:email])
 
         if @user && @user.authenticate(user_params[:password])
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         end 
     end
 
-    def omniauth  
+    def omniauth  #working!
       user = User.create_from_omniauth(auth)       
        if user.valid?           
          session[:user_id] = user.id          
