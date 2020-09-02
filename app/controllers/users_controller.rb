@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             flash[:notice] = "Successfully Logged In!"
         else 
             render :new
-            flash[:message] = "Email or Password already taken"
+            flash[:notice] = "Email Already Taken. Password Cannot Blank"
         end
     end
     
