@@ -1,7 +1,9 @@
 class User < ApplicationRecord
     has_many :assignments
     has_many :courses, through: :assignments
-    
+
+    has_attached_file :avatar, default_url: ':style/default.png', styles: { thumb: "100x100>" }
+    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
     validates :email, presence: true, uniqueness: true
     has_secure_password

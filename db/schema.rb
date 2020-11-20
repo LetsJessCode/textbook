@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_203354) do
+ActiveRecord::Schema.define(version: 2020_11_20_172124) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 2020_08_23_203354) do
     t.string "password_digest"
     t.string "provider"
     t.string "uid"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.bigint "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "assignments", "courses"

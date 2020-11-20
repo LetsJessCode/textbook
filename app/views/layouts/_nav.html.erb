@@ -3,6 +3,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
+       
         <%=link_to 'Home', root_path, class: "navbar-brand" %>
         <%=link_to 'View Courses', courses_path, class: "navbar-brand" %>
         <%=link_to 'Homeroom', users_path, class: "navbar-brand" %>
@@ -11,6 +12,7 @@
       <ul class="nav navbar-nav navbar-right">    
       <% if logged_in? %>  
          <%# binding.pry %>
+        <%= image_tag current_user.avatar.url(:thumb) %>
         <li><%=link_to 'Edit UserProfile', edit_user_path(current_user) %></li>
         <li><%=link_to 'Add Assignment', new_user_assignment_path(current_user) %></li>  
         <li><%=link_to 'Your Homework', user_assignments_path(current_user) %></li>

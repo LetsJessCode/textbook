@@ -1,8 +1,12 @@
-<div class="title-container">
+  <div class="title-container">
     <h1>Edit <%= @user.first %>'s Profile </h1>
-    </div>
+  </div>
 
-<%= form_for @user do |f| %>
+<%= form_for current_user, html: {multipart: true} do |f| %>
+  <div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
 
   <div>
     <%= f.label :first, 'First Name' %>
@@ -23,6 +27,6 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
-   <%= f.submit 'Edit'%>
+   <%= f.submit 'Update'%>
    <% end %>
    <%= button_to 'Delete Account', user_path(current_user), method: 'delete' %>

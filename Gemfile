@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'pry'
 
+gem 'paperclip'
+
 gem "bootstrap_form", "~> 4.0"
 
 gem 'jquery-rails'

@@ -2,7 +2,12 @@
     <h1>Signup Page</h1
     </div>>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html: {multipart: true} do |f| %>
+  <div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+
   <div>
     <%= f.label :first, 'First Name' %>
     <%= f.text_field :first %>
