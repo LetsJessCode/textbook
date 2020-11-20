@@ -30,7 +30,7 @@ class AssignmentsController < ApplicationController
 
     def edit ###working
       current_user
-  end 
+    end 
 
     def update ##working
       current_user

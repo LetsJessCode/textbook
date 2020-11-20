@@ -4,10 +4,11 @@
 <div>
     <ol>
         <% @users.each do |user| %>
-          <% image_tag user.avatar.url(:thumb) %>
-          <li><h2><%= link_to user.first, user_path(user) %> 
-          <%= link_to user.last, user_path(user) %></li></h2>    
+        <% if user && !user.admin %>
+          <li><%= image_tag user.avatar.url(:thumb) %><%= link_to user.first, user_path(user) %> 
+          <%= link_to user.last, user_path(user) %></li>
           <hr>
+          <% end %>
         <% end %>
     </ol>
 </div>

@@ -1,16 +1,14 @@
 <div class="title-container">
- <%= image_tag @user.avatar.url %><h1><%= @user.first %>'s Assignments</h1>
-    </div>
+    <h1><%= @user.first %>'s Assignments</h1>
+    <%= image_tag @user.avatar.url(:thumb) %>
+</div>
 <div>
-
     <% @user.assignments.each do |assignment| %>
-        <ol>
-            <li>Subject: <%= assignment.course.name %></li> 
-            <li>Assignment Name: <%= assignment.name %></li> 
-            <li>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></li>
-            <li>Completed?: <%= assignment.completed %></li> 
-            <li>Comments/Concerns: <%= assignment.comment %></li> 
-            <hr>
-        </ol>
+            Subject: <%= assignment.course.name %> <br> 
+            Assignment Name: <%= assignment.name %> <br> 
+            Due Date: <%= assignment.due.strftime("%m/%d/%Y") %> <br>
+            Completed?: <%= assignment.completed %> <br> 
+            Comments/Concerns: <%= assignment.comment %> <br> 
+            <hr>   
     <% end %>
 </div>

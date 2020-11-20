@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
         if @user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
-             redirect_to user_assignments_path(@user)
+             redirect_to root_path
              flash[:info] = "Successfully Logged In!"
         else
             flash[:error] = "Incorrect Email or Password"         

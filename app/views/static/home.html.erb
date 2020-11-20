@@ -1,11 +1,11 @@
-
-
 <div>
     <% if current_user %>
     <div>
         <%= image_tag current_user.avatar.url(:thumb) %>
     </div>  
-        <%= render 'assignments/index'%>
+        <% if current_user && !current_user.admin %>
+            <%= render 'assignments/index'%>
+        <% end %>
     <% else %>
         <p>Thank you for visiting Textbook, a Homeschool Assignment Tracker! Please Log-In or SignUp </p>
     <% end %>

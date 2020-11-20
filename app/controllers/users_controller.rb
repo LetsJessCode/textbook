@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
         session[:user_id] = @user.id
-            redirect_to user_assignments_path(current_user)
+            redirect_to root_path
             flash[:notice] = "Successfully Logged In!"
         else 
             render :new
@@ -29,12 +29,11 @@ class UsersController < ApplicationController
     end
 
     def edit  
-         @user = User.find_by_id(params[:id])
+        @user = User.find_by_id(params[:id])
     end
 
     def update
-        if current_user && @user_id == @user.id
-            @user.update
+        if current_user.update(user_params)
             redirect_to user_path(current_user)
         else
             render :edit
@@ -42,9 +41,9 @@ class UsersController < ApplicationController
     end
 
     def destroy
-     user = User.find_by_id(params[:id]) 
-        user.destroy
-        redirect_to root_path
+        User.find_by_id(session[:user_id]).destroy      
+        session[:user_id] = nil     
+     redirect_to root_path
     end
 
     private

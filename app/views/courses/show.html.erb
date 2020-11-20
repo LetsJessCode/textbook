@@ -1,16 +1,36 @@
 <div class="title-container">
     <h1><%= @course.name %> Assignments </h1>
 </div>
-    
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Assignment</th>
+      <th>Due Date</th>
+      <th>Completed</th>
+      <th>Questions/Comments</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+    <tbody> 
     <% @course.assignments.each do |assignment| %>
-    <ol>
-       <h3> Student: <%= assignment.user.first %> <%= assignment.user.last %></h3>
-       <li><h5>Homework Assignment: <%=  assignment.name %></h5> </li> 
-       <li><h5>Due Date: <%= assignment.due.strftime("%m/%d/%Y") %></h5></li>
-       <li><h5>Completed: <%= assignment.completed %></h5></li>
-        <li><h5> Student Question/Concern: <%= assignment.comment %></h5></li>
-                <hr>
-    </ol>
-    <% end %>
+       <tr> 
+          <td> <%= assignment.user.first %> <%= assignment.user.last %></td>
+          <td><%= assignment.name %></td>
+          <td><%= assignment.due.strftime("%m/%d/%Y") %></td>
+          <td><%= assignment.completed %></td>
+          <td><%= assignment.comment %> </td>
+         <% end %>
+        </tr>
+    </tbody>
+  </table>  
+ <hr>
+    
+    
+
+        
+          
+           
+           
 
     
