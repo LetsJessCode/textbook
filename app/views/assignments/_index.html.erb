@@ -1,0 +1,26 @@
+
+<h2><%= current_user.first%>'s Homework Check-List </h2>
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Assignment</th>
+      <th>Due Date</th>
+      <th>Completed</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+    <tbody>
+         <% current_user.assignments.each do |assignment| %>
+          <tr> 
+           <td><%= assignment.course.name %></td>
+           <td><%= assignment.name %></td>
+           <td><%= assignment.due.strftime("%m/%d/%Y") %></td>
+           <td><%= assignment.completed %></td>
+            <% end %>
+        </tr>
+    </tbody>
+  </table>  
+    <%# <div class="assignment">
+             <div class="thumbnail">
+            <body class="caption"> %>
