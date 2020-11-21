@@ -1,15 +1,17 @@
 
 <header class="container">
   <nav class="navbar navbar-default">
+  <% if logged_in? %> 
+    <%= image_tag current_user.avatar.url(:thumb), :class => "style_image"%>
     <div class="container-fluid">
       <div class="navbar-header">
-         <% if logged_in? %> 
             <% if logged_in? && !current_user.admin %>   
                <%=link_to 'BackPack',  user_assignments_path(current_user), class: "navbar-brand" %>
             <% end %>
              <% if logged_in? && current_user.admin %>
                <%=link_to 'Homeroom', users_path, class: "navbar-brand" %>
                <h3>Parent / Admin Page </h3>
+               <%= render 'layouts/resources' %>
             <% end %>
       </div>
             <ul class="nav navbar-nav navbar-right">    

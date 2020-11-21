@@ -1,30 +1,32 @@
      
 <header class="container">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-light" style="background-color: #B7D968;">
     <div class="container-fluid">
       <div class="navbar-header">
-       
+        <% if logged_in?%>
+          <%= image_tag current_user.avatar.url(:thumb), :class => "style_image"%>
+        <% end %>
+      </div>
+      <div>
         <%=link_to 'Home', root_path, class: "navbar-brand" %>
         <% if current_user && current_user.admin %>
           <%=link_to 'Subjects', courses_path, class: "navbar-brand" %>
           <%=link_to 'Homeroom', users_path, class: "navbar-brand" %>
         <% end %>
-      </div>
-
-      <ul class="nav navbar-nav navbar-right">    
-      <% if logged_in? %>  
-        <%= image_tag current_user.avatar.url(:thumb) %>
-        <li><%=link_to 'Edit UserProfile', edit_user_path(current_user) %></li>
         <% if logged_in? && !current_user.admin %>
-          <li><%=link_to 'Add Assignment', new_user_assignment_path(current_user) %></li>  
-          <li><%=link_to 'Homework', user_assignments_path(current_user) %></li>
+          <%=link_to 'Add Assignment', new_user_assignment_path(current_user) %> 
+            <%=link_to 'Homework', user_assignments_path(current_user) %>  
         <% end %>
-        <li> <%= link_to "Log out", logout_path, method: "delete" %></li>   
-      <% else %> 
-        <li class ="tab"><%= link_to 'Login', login_path %></li>
-        <li class="tab"><%=link_to 'Signup', signup_path %></li> 
-      <% end %>   
-     </ul>
+      </div>
+        <ul class="nav navbar-nav navbar-right">    
+          <% if logged_in?%>
+            <%=link_to 'Update Profile', edit_user_path(current_user) %>
+            <%= link_to "Log out", logout_path, method: "delete" %>
+          <% else %> 
+            <li class ="tab"><%= link_to 'Login', login_path %></li>
+            <li class="tab"><%=link_to 'Signup', signup_path %></li> 
+          <% end %>   
+      </ul>
     </div>
   </nav>
 </header>     

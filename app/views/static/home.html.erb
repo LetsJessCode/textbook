@@ -1,10 +1,12 @@
 <div>
     <% if current_user %>
-    <div>
-        <%= image_tag current_user.avatar.url(:thumb) %>
-    </div>  
+        <%# <%= image_tag current_user.avatar.url(:thumb), :class => "home_pic" %> 
+      
         <% if current_user && !current_user.admin %>
             <%= render 'assignments/index'%>
+        <% end %>
+        <% if current_user && current_user.admin%>
+
         <% end %>
     <% else %>
         <p>Thank you for visiting Textbook, a Homeschool Assignment Tracker! Please Log-In or SignUp </p>
