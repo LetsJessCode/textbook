@@ -13,16 +13,22 @@ table, th, td {
   }
   
    tr:nth-child(even){background-color: #f2f2f2;}
-  
+   tr:nth-child(odd){background-color: #f2f2f2;}
+
    tr:hover {background-color: #ddd;}
   
    th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
+    text-align: center;
+    background-color: #ffe3e0;
+    color: black;
   }
   .style_image {
     border-radius: 50%;
   }
+
+ .name {
+   color: white;
+   text-align: center;
+ }

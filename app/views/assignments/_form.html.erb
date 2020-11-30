@@ -1,7 +1,7 @@
 
-
+<div class="form">
 <%= form_for ([current_user, assignment]) do |f| %>        
-  <h3>Select Your Assignment Subject</h3>
+  <h3 class="title">Select Your Assignment Subject</h3>
   
  <h5><%= f.collection_select :course_id, Course.all, :id, :name, prompt: true %></h5>
            <div class="form-group">
@@ -9,7 +9,7 @@
                 <%= f.text_field :name, class: "form-control" %><br>
            </div>
                  
-     <h3>Completed? <%= f.select :completed, [ 'yes','no' ], :prompt => 'Select One' %></h3>
+     <h3 class="title">Completed? <%= f.select :completed, [ 'yes','no' ], :prompt => 'Select One' %></h3>
             <br>
         <div class="form-group">
             <%= f.label :due, 'Due Date' %>
@@ -25,3 +25,4 @@
             <%= f.submit button_name, class: "btn btn-primary" %>
         </div>
             <% end %>
+</div>

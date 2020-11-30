@@ -10,7 +10,7 @@
             <% end %>
              <% if logged_in? && current_user.admin %>
                <%=link_to 'Homeroom', users_path, class: "navbar-brand" %>
-               <h3>Parent / Admin Page </h3>
+               <h3>Parent Page </h3>
                <%= render 'layouts/resources' %>
             <% end %>
       </div>

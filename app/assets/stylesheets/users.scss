@@ -1,3 +1,32 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+a:link, a:visited {
+    background-color: #272932;
+    color: white;
+    // padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    }
+    
+    a:hover, a:active {
+      background-color: #e8e9ed;
+    }
+
+    .homeroom{
+        margin: auto;
+        width: 50%;
+        border: 3px solid #ffe3e0;
+        padding: 10px;
+        text-align: center;
+        color: #ffe3e0;
+    }
+      
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        border: 1px solid #ffe3e0; 
+    }

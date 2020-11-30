@@ -2,7 +2,7 @@
     <h1><%= @user.first %>'s Assignments</h1>
     <%= image_tag @user.avatar.url(:thumb) %>
 </div>
-<div>
+<div class="info">
     <% @user.assignments.each do |assignment| %>
             Subject: <%= assignment.course.name %> <br> 
             Assignment Name: <%= assignment.name %> <br> 

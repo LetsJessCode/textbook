@@ -1,4 +1,8 @@
-<div>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %><div>
     <% if current_user %>
         <%# <%= image_tag current_user.avatar.url(:thumb), :class => "home_pic" %> 
       

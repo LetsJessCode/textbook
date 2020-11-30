@@ -1,20 +1,20 @@
 <div class="title-container">
-    <h1>Homeroom</h1>
+    <h1 class="homeroom">Homeroom</h1>
 </div>
 
  
   
     
 </div>
+       
         <% @users.each do |user| %>
         <% if user && !user.admin %>
-    <div class="card" style="width: 18rem;">
-       <%= image_tag user.avatar.url(:thumb), :class => "kids"%>  
-        <%# <%= image_tag user.avatar.url(:thumb) %>
-        <div class="card-body">
-            <p class="card-text"><%= link_to user.first, user_path(user) %>
-            <%= link_to user.last, user_path(user) %></p>
-         </div>
-    </div>     
+                <div class="card" style="width: 18rem;">
+                 <%= image_tag user.avatar.url(:thumb), :class => "kids"%>  
+                    <div class="card-body">
+                        <p class="card-text"><%= link_to user.first, user_path(user) %>
+                        <%= link_to user.last, user_path(user) %></p>
+                    </div>
+                </div>     
     <% end %>
 <% end %>
